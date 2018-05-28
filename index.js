@@ -10,4 +10,14 @@ function createPost() {
   var body = document.getElementById("postBody").value;
 
   document.getElementById("post").innerHTML += postTemplateFn({ 'title': title, 'body': body, 'author': author})
+  document.getElementById("sidebar").innerHTML += commentsTemplateFn()
+}
+
+function postComment() {
+  var name = document.getElementById("commentName").value;
+  var body = document.getElementById("commentBody").value;
+
+  var commentTemplateFn = _.template(document.getElementById("comment-template").innerHTML);
+
+  document.getElementById("comments").innerHTML += commentTemplateFn({'name': name, 'body': body})
 }
